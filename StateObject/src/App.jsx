@@ -1,6 +1,7 @@
 import { useState } from 'react'
 
 import './App.css'
+import NestedObject from '../Compnents/NestedObject';
 
 function App() {
   const [person , setPerson] = useState({
@@ -24,6 +25,7 @@ function App() {
 
 
        <p>Welcome {person.firstName}: {person.lastName} your current email address is {person.Email}</p>
+       <NestedObject/>
     </div>
   )
 }
