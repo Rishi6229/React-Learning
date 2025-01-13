@@ -1,5 +1,6 @@
 import React from 'react'
 import { useState } from 'react'
+import DeleteTask from './DeleteTask';
 
 
 let taskIndex = 0;
@@ -16,6 +17,7 @@ function TaskList() {
         <h1>Task Manager Application</h1>
         <input type="text" name="" id=""  value={taskName} onChange={(e)=>{
             setTaskName(e.target.value)
+            
         }} />
         <button onClick={(e)=>{
             setTask([
@@ -28,7 +30,13 @@ function TaskList() {
    
         <ul>
             {task.map(tasks =>(
-                <li key={tasks.id}>{tasks.name}</li>
+                <li key={tasks.id}>{tasks.name}{' '}
+                    <button onClick={()=>{
+                        setTask(
+                            task.filter(t => t.id !== tasks.id)
+                        )
+                    }}>Delete Task</button>
+                </li>
             ))}
         </ul>
 
